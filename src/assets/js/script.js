@@ -1,5 +1,20 @@
 (() => {
   // -------------------------------- //
+  // 360px未満のデバイスの場合、デバイス幅を360pxに
+  // -------------------------------- //
+  const switchViewport = () => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    console.log(viewport);
+    const value =
+      window.outerWidth > 375 ?
+        'width=device-width,initial-scale=1' :
+        'width=375';
+    if (viewport.getAttribute('content') !== value) {
+      viewport.setAttribute('content', value);
+    }
+  };
+  switchViewport();
+  // -------------------------------- //
   // リサイズ・スクロールごとの処理
   // -------------------------------- //
   window.addEventListener('load', () => {
@@ -13,6 +28,7 @@
         window.requestAnimationFrame(() => {
           // ここでなにか処理をする
           console.log('resizeRunning');
+          switchViewport();
           resizeRunning = false;
         });
       }
