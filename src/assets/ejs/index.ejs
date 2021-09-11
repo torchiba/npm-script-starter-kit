@@ -1,20 +1,45 @@
+<% const pageMeta = {
+	title:'title area',
+	description: 'description area',
+	htmlLang: 'ja',
+	ogLocaleLang: 'ja_JP',
+	path: './',
+	url: '',
+	twitter: '@tos',
+}; %>
 <!DOCTYPE html>
-<html lang="ja">
-<% var path = './'; %>
-<% var title = 'titleですよー'; %>
-<% var description = 'descriptionすよー'; %>
-<% var ogimage = ''; %>
-<% var ogurl = ''; %>
-  <head>
-    <% include ./templates/_head %>
-  </head>
+<html lang="<%= pageMeta.htmlLang %>">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="<%= pageMeta.path %>assets/css/style.min.css">
+		<link rel="shortcut icon" href="<%= pageMeta.path %>assets/images/favicon.ico">
+		<title><%= pageMeta.title %></title>
+		<meta name="description" content="<%= pageMeta.description %>">
+
+		<!-- facebookに関するタグ -->
+		<meta property="og:site_name" content="<%= pageMeta.title %>" />
+		<meta property="og:title" content="<%= pageMeta.title %>" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="<%= pageMeta.url %>" />
+		<meta property="og:image" content="<%= pageMeta.url %>/assets/images/ogimage_en.png" />
+		<meta property="og:description" content="<%= pageMeta.description %>" />
+		<meta property="og:locale" content="<%= pageMeta.ogLocaleLang %>" />
+
+		<!-- twitterに関するタグ -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="<%= pageMeta.twitter %>" />
+		<meta name="twitter:description" content="<%= pageMeta.description %>" />
+
+		<% include ./templates/_gta %>
+	</head>
 
   <body>
-    <% include ./templates/_gta %>
 		<div class="container">
 			<h1>こんにちは！！！！！</h1>
 		</div>
-    <script src="<%= path %>assets/js/script.min.js" ></script>
+    <script src="<%= pageMeta.path %>assets/js/script.min.js" defer></script>
   </body>
 </html>
 

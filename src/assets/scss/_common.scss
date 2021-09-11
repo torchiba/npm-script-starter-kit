@@ -41,3 +41,13 @@ div {
 	width: 100%;
 	background: #f00;
 }
+
+// マークアップしてるけど画像で見せているので隠し
+.visually-hidden,
+.content__area {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
