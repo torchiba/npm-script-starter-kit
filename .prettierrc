@@ -1,6 +1,7 @@
 printWidth: 120
 tabWidth: 2
-singleQuote: false
+singleQuote: true
 trailingComma: none
+useTabs: true
 semi: true
 bracketSpacing: true

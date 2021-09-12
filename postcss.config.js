@@ -3,8 +3,8 @@ module.exports = {
     autoprefixer: {
       cascade: false,
     },
-    'cssnano': {
-			preset: 'default',
-		},
+    cssnano: {
+      preset: 'default',
+    },
   },
 };
