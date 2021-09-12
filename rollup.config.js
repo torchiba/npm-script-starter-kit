@@ -3,7 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser'; // {}外すとエラーが起こる
 
 export default {
-  input: 'src/assets/js/script.js',
+  input: 'dist/assets/js/script.js',
   output: {
     file: 'dist/assets/js/script.min.js',
     format: 'iife',
