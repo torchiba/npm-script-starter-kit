@@ -1,7 +1,8 @@
 module.exports = {
   plugins: {
     autoprefixer: {
-      cascade: false,
+      browsers: ['last 2 versions'],
+      cascade: true,
     },
     cssnano: {
       preset: 'default',

@@ -4,7 +4,7 @@
   // 360px未満のデバイスの場合、デバイス幅を360pxに
   // -------------------------------- //
   const switchViewport = () => {
-    const viewport = document.querySelector('meta[name="viewport"]');
+    const viewport:HTMLElement = document.querySelector('meta[name="viewport"]');
 
     if (viewport != null) {
       const value =
