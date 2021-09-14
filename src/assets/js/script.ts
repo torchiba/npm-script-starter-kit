@@ -4,18 +4,23 @@
   // 360px未満のデバイスの場合、デバイス幅を360pxに
   // -------------------------------- //
   const switchViewport = () => {
-    const viewport:HTMLElement = document.querySelector('meta[name="viewport"]');
+    // console.log(`$viewpor: ${typeof $viewpor}`);
+    const $viewport: HTMLElement | null = document.querySelector(
+        'meta[name="viewport"]',
+    );
+    const WIDTH_XS: Number = 375;
 
-    if (viewport != null) {
-      const value =
-        window.innerWidth > 375 ?
+    if ($viewport) {
+      const value: string =
+        window.innerWidth > WIDTH_XS ?
           'width=device-width,initial-scale=1' :
           'width=375';
-      if (viewport.getAttribute('content') !== value) {
-        viewport.setAttribute('content', value);
+      console.log('value', value);
+      if ($viewport.getAttribute('content') !== value) {
+        $viewport.setAttribute('content', value);
       }
     }
-    // console.log(viewport);
+    // console.log($viewport);
   };
   switchViewport();
   // -------------------------------- //
@@ -23,7 +28,7 @@
   // -------------------------------- //
   window.addEventListener('load', () => {
     // ---------------- resizeRunning ---------------- //
-    let resizeRunning = false;
+    let resizeRunning: Boolean = false;
     window.addEventListener('resize', () => {
       // 呼び出されるまで何もしない
       if (!resizeRunning) {
@@ -39,7 +44,7 @@
     });
 
     // ---------------- scrollRunning ---------------- //
-    let scrollRunning = false;
+    let scrollRunning: Boolean = false;
     window.addEventListener('scroll', () => {
       // 呼び出されるまで何もしない
       if (!scrollRunning) {

@@ -5,16 +5,19 @@
     // 360px未満のデバイスの場合、デバイス幅を360pxに
     // -------------------------------- //
     const switchViewport = () => {
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (viewport != null) {
-            const value = window.innerWidth > 375 ?
+        // console.log(`$viewpor: ${typeof $viewpor}`);
+        const $viewport = document.querySelector('meta[name="viewport"]');
+        const WIDTH_XS = 375;
+        if ($viewport) {
+            const value = window.innerWidth > WIDTH_XS ?
                 'width=device-width,initial-scale=1' :
                 'width=375';
-            if (viewport.getAttribute('content') !== value) {
-                viewport.setAttribute('content', value);
+            console.log('value', value);
+            if ($viewport.getAttribute('content') !== value) {
+                $viewport.setAttribute('content', value);
             }
         }
-        // console.log(viewport);
+        // console.log($viewport);
     };
     switchViewport();
     // -------------------------------- //
