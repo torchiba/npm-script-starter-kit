@@ -3,84 +3,84 @@
 // -------------------------------- //
 // ---------------- mixin ---------------- //
 @mixin clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }
 
 @mixin mg-auto {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 // [SCSS/Mixin]テキストのline-heightでできてしまうの余白を先頭と最後の行だけ取り除く
 // Qiita-https://qiita.com/super-mana-chan/items/5fabaee9da4b02f0df7e
 @mixin lhCrop($line-height: 1, $capital-letter: 1) {
-  overflow: hidden; //相殺した余白をカット
-  &::before {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
-  }
-  &::after {
-    //最終行も取り除く
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
-  }
+	overflow: hidden; //相殺した余白をカット
+	&::before {
+		content: "";
+		display: block;
+		height: 0;
+		width: 0;
+		margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+	}
+	&::after {
+		//最終行も取り除く
+		content: "";
+		display: block;
+		height: 0;
+		width: 0;
+		margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+	}
 }
 
 // ---------------- mediaquery ---------------- //
 // min-width
 $breakpoint-min: (
-  "xs": "screen and (min-width: 385px)",
-  "sm": "screen and (min-width: 400px)",
-  "md": "screen and (min-width: 768px)",
-  "ipadmin": "screen and (min-width: 501px)",
-  "ipad": "screen and (min-width: 769px)",
-  "lg": "screen and (min-width: 960px)",
-  "xl": "screen and (min-width: 1200px)",
+	"xs": "screen and (min-width: 385px)",
+	"sm": "screen and (min-width: 400px)",
+	"md": "screen and (min-width: 768px)",
+	"ipadmin": "screen and (min-width: 501px)",
+	"ipad": "screen and (min-width: 769px)",
+	"lg": "screen and (min-width: 960px)",
+	"xl": "screen and (min-width: 1200px)",
 ) !default;
 
 // max-width
 $breakpoint-max: (
-  "xs": "screen and (max-width: 384px)",
-  "sm": "screen and (max-width: 399px)",
-  "md": "screen and (max-width: 767px)",
-  "ipadmin": "screen and (max-width: 500px)",
-  "ipad": "screen and (max-width: 768px)",
-  "lg": "screen and (max-width: 959px)",
-  "xl": "screen and (max-width: 1199px)",
+	"xs": "screen and (max-width: 384px)",
+	"sm": "screen and (max-width: 399px)",
+	"md": "screen and (max-width: 767px)",
+	"ipadmin": "screen and (max-width: 500px)",
+	"ipad": "screen and (max-width: 768px)",
+	"lg": "screen and (max-width: 959px)",
+	"xl": "screen and (max-width: 1199px)",
 ) !default;
 
 // min-width ~ maxwidth
 $breakpoint-minmax: (
-  "kv": "screen and (min-width: 501px) and (max-width: 768px)",
-  "sp_ipad": "screen and (min-width: 767px) and (max-width: 768px)",
-  "ipad_pc": "screen and (min-width: 768px) and (max-width: 1050px)",
+	"kv": "screen and (min-width: 501px) and (max-width: 768px)",
+	"sp_ipad": "screen and (min-width: 767px) and (max-width: 768px)",
+	"ipad_pc": "screen and (min-width: 768px) and (max-width: 1050px)",
 ) !default;
 
 // @mixinの定義
 @mixin mq-min($breakpoint: md) {
-  @media #{map-get($breakpoint-min, $breakpoint)} {
-    @content;
-  }
+	@media #{map-get($breakpoint-min, $breakpoint)} {
+		@content;
+	}
 }
 
 @mixin mq-max($breakpoint: md) {
-  @media #{map-get($breakpoint-max, $breakpoint)} {
-    @content;
-  }
+	@media #{map-get($breakpoint-max, $breakpoint)} {
+		@content;
+	}
 }
 
 @mixin mq-minmax($breakpoint: ipad_pc) {
-  @media #{map-get($breakpoint-minmax, $breakpoint)} {
-    @content;
-  }
+	@media #{map-get($breakpoint-minmax, $breakpoint)} {
+		@content;
+	}
 }
