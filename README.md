@@ -12,8 +12,8 @@ package.json
   -- assets  
     -- scss  
       style.scss  
-    -- js  
-      script.js  
+    -- ts  
+      script.ts  
     -- images  
       image.jpg  
       image.gif  
@@ -34,7 +34,7 @@ package-lock.json
 package.json  
 postcss.config.js  
 rollup.config.js  
-
+tsconfig.json  
 
 ```
 
